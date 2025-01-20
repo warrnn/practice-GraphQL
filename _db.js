@@ -32,4 +32,21 @@ const members = [
 	},
 ];
 
-export { books, members };
+const lendings = [
+	{
+		id: "lend_1",
+		book_id: "book_1",
+		member_id: "member_1",
+		borrowed_at: "2024-06-28",
+		returned_at: "2024-07-28",
+	},
+	{
+		id: "lend_2",
+		book_id: "book_2",
+		member_id: "member_1",
+		borrowed_at: "2024-06-28",
+		returned_at: "2024-07-28",
+	},
+];
+
+export { books, members, lendings };
