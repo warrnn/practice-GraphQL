@@ -1,20 +1,38 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 
+import { books, members } from "./_db.js";
+
 const typeDefs = `#graphql
+    type Book {
+        id: ID!
+        title: String!
+        author: String!
+        published_at: String!
+        category: String!
+        total: Int!
+    }
+
+    type Member {
+        id: ID!
+        name: String!
+        email: String!
+        verified: Boolean!
+    }
+
     type Query {
-        hello: String
-        greeting: String
+        books: [Book!]!
+        members: [Member!]!
     }
 `;
 
 const resolvers = {
 	Query: {
-		hello: () => {
-			return "Hello World";
+		books: () => {
+			return books;
 		},
-		greeting: () => {
-			return "Hello There";
+		members: () => {
+			return members;
 		},
 	},
 };
